@@ -619,7 +619,7 @@ window.VIEWER_DATA = {
  ],
  "sim": [
   {
-   "id": "scene0869",
+   "id": "scene0672",
    "main": [
     {
      "key": "input",
