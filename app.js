@@ -123,7 +123,7 @@
         await navigator.clipboard.writeText(text);
         copyBibBtn.textContent = "Copied!";
         setTimeout(() => {
-          copyBibBtn.textContent = "Copy BibTeX";
+          copyBibBtn.textContent = "Copy";
         }, 1800);
       } catch (_err) {
         const range = document.createRange();
@@ -136,7 +136,7 @@
         document.execCommand("copy");
         copyBibBtn.textContent = "Copied!";
         setTimeout(() => {
-          copyBibBtn.textContent = "Copy BibTeX";
+          copyBibBtn.textContent = "Copy";
         }, 1800);
       }
     });

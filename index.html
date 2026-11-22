@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WhaleUnveil: Seeing Marine Life Beneath the Ocean Surface in Aerial Video</title>
-  <meta name="description" content="Supplemental project page for WhaleUnveil: a real-time physically based ocean simulator, cross-domain aerial dataset, and multimodal diffusion model for aerial dewatering.">
+  <meta name="description" content="WhaleUnveil: removing the ocean surface from aerial wildlife video.">
   <link rel="icon" type="image/png" href="assets/whale_emoji.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,6 @@
 </head>
 <body>
 
-  <!-- Top Navigation -->
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="container nav-inner">
       <a class="nav-brand" href="#top">
@@ -23,125 +22,82 @@
       </a>
       <ul class="nav-links">
         <li><a href="#viewer">Results</a></li>
-        <li><a href="#teaser">Teaser Video</a></li>
+        <li><a href="#teaser">Teaser</a></li>
         <li><a href="#abstract">Abstract</a></li>
-        <li><a href="#optics">Optical Model</a></li>
-        <li><a href="#simulator">Simulator Gallery</a></li>
+        <li><a href="#optics">Optics</a></li>
+        <li><a href="#simulator">Simulator</a></li>
         <li><a href="#results">Benchmark</a></li>
-        <li><a href="#figures">Paper Figures</a></li>
+        <li><a href="#figures">Figures</a></li>
         <li><a href="#bibtex">BibTeX</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Header & Title -->
   <header id="top" class="hero-header">
     <div class="container">
-      <div class="venue-kicker">Supplemental Project Page</div>
       <h1 class="paper-title">
         WhaleUnveil <img class="title-icon" src="assets/whale_emoji.png" alt="whale">: Seeing Marine Life Beneath the Ocean Surface in Aerial Video
       </h1>
-
       <div class="authors">
-        <span class="author-item">Anonymous CVPR 2027 Submission</span>
-      </div>
-
-      <div class="action-pills">
-        <a class="pill-btn primary" href="#teaser">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-          Teaser Video
-        </a>
-        <a class="pill-btn" href="#simulator">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-          Simulator Gallery
-        </a>
-        <a class="pill-btn" href="#figures">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          Paper Figures
-        </a>
-        <a class="pill-btn" href="#bibtex">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
-          BibTeX
-        </a>
+        <span class="author-item">Anonymous CVPR 2027 submission</span>
       </div>
     </div>
   </header>
 
-  <!-- Results viewer -->
   <section id="viewer" class="viewer-section">
     <div class="viewer-wide">
       <div class="viewer-head">
-        <div>
-          <h2 class="section-title">Results</h2>
-          <p>Our high-resolution model removes the water from held-out aerial video. Pick an example below. Predicted layers and baseline comparisons are one click away.</p>
-        </div>
+        <h2 class="section-title">Results</h2>
         <div class="viewer-tabs" role="tablist">
-          <button type="button" class="viewer-tab active" data-kind="real" role="tab" aria-selected="true">Real footage</button>
-          <button type="button" class="viewer-tab" data-kind="sim" role="tab" aria-selected="false">Simulated, with ground truth</button>
+          <button type="button" class="viewer-tab active" data-kind="real" role="tab" aria-selected="true">Real</button>
+          <button type="button" class="viewer-tab" data-kind="sim" role="tab" aria-selected="false">Simulated</button>
         </div>
       </div>
       <div class="viewer-thumbs" id="viewer-thumbs"></div>
       <div class="viewer-stage" id="viewer-stage"></div>
       <div class="viewer-bar">
-        <div class="meta" id="viewer-meta"></div>
         <div class="viewer-controls">
           <button type="button" class="vbtn" id="vbtn-play">Pause</button>
-          <button type="button" class="vbtn" id="vbtn-speed">Speed 1&times;</button>
-          <button type="button" class="vbtn" id="vbtn-layers" aria-pressed="false">Show predicted layers</button>
-          <button type="button" class="vbtn" id="vbtn-base" aria-pressed="false">Show baselines</button>
+          <button type="button" class="vbtn" id="vbtn-speed">1&times;</button>
+          <button type="button" class="vbtn" id="vbtn-layers" aria-pressed="false">Layers</button>
+          <button type="button" class="vbtn" id="vbtn-base" aria-pressed="false">Baselines</button>
         </div>
       </div>
       <div class="viewer-extra" id="viewer-layers" hidden>
-        <h3>Predicted layers <span>all generated jointly with the clean video</span></h3>
+        <h3>Predicted layers</h3>
         <div class="viewer-grid" id="viewer-layers-grid"></div>
       </div>
       <div class="viewer-extra" id="viewer-base" hidden>
-        <h3>Baselines <span>top five methods by foreground PSNR in Table 2, run on the same input</span></h3>
+        <h3>Baselines</h3>
         <div class="viewer-grid" id="viewer-base-grid"></div>
       </div>
     </div>
   </section>
 
-  <!-- Hero Teaser Video -->
   <section id="teaser" class="section-hero">
     <div class="container">
       <div class="hero-video-card">
         <div class="video-wrapper">
-          <video
-            id="hero-teaser-video"
-            controls
-            playsinline
-            preload="metadata"
-            poster="assets/whaleunveil_teaser_poster.jpg"
-          >
+          <video id="hero-teaser-video" controls playsinline preload="metadata" poster="assets/whaleunveil_teaser_poster.jpg">
             <source src="assets/whaleunveil_teaser.mp4" type="video/mp4">
-            Your browser does not support HTML5 video playback.
           </video>
         </div>
-
         <div class="chapter-bar" aria-label="Video chapters">
-          <span class="chapter-label">Chapters</span>
-          <button type="button" class="chapter-btn active" data-time="0"><span class="ts">0:00</span>Open Ocean</button>
-          <button type="button" class="chapter-btn" data-time="3.5"><span class="ts">0:03</span>Sun Angle</button>
-          <button type="button" class="chapter-btn" data-time="9.0"><span class="ts">0:09</span>Water Clarity</button>
-          <button type="button" class="chapter-btn" data-time="14.5"><span class="ts">0:14</span>Seafloor Biomes</button>
-          <button type="button" class="chapter-btn" data-time="20.0"><span class="ts">0:20</span>Seafloor Depth</button>
-          <button type="button" class="chapter-btn" data-time="25.5"><span class="ts">0:25</span>Wind &amp; Waves</button>
-          <button type="button" class="chapter-btn" data-time="31.0"><span class="ts">0:31</span>Fluid Particles</button>
-          <button type="button" class="chapter-btn" data-time="36.5"><span class="ts">0:36</span>Optical Layers</button>
-          <button type="button" class="chapter-btn" data-time="55.05"><span class="ts">0:55</span>877 3D Species</button>
+          <button type="button" class="chapter-btn active" data-time="0"><span class="ts">0:00</span>Ocean</button>
+          <button type="button" class="chapter-btn" data-time="3.5"><span class="ts">0:03</span>Sun</button>
+          <button type="button" class="chapter-btn" data-time="9.0"><span class="ts">0:09</span>Clarity</button>
+          <button type="button" class="chapter-btn" data-time="14.5"><span class="ts">0:14</span>Biomes</button>
+          <button type="button" class="chapter-btn" data-time="20.0"><span class="ts">0:20</span>Depth</button>
+          <button type="button" class="chapter-btn" data-time="25.5"><span class="ts">0:25</span>Waves</button>
+          <button type="button" class="chapter-btn" data-time="31.0"><span class="ts">0:31</span>Fluid</button>
+          <button type="button" class="chapter-btn" data-time="36.5"><span class="ts">0:36</span>Layers</button>
+          <button type="button" class="chapter-btn" data-time="55.05"><span class="ts">0:55</span>Species</button>
           <button type="button" class="chapter-btn" data-time="63.25"><span class="ts">1:03</span>WhaleUnveil</button>
         </div>
-
-        <p class="hero-caption">
-          <strong>WhaleUnveil Ocean Simulator Teaser (1080p, 60 FPS, 68 s).</strong>
-          A continuous showcase of our WebGL2 ocean engine sweeping sun elevation, Beer&ndash;Lambert water clarity presets, six seafloor biomes, seafloor depth (5.4&ndash;32 m), wind speed and wave state (1&ndash;28 m/s), 393K MLS-MPM fluid particles, per-frame reversible optical layer decomposition, and a continuous zoom-out across our full catalog of 877 3D marine species.
-        </p>
       </div>
     </div>
   </section>
 
-  <!-- Abstract & Overview -->
   <section id="abstract" class="section">
     <div class="container">
       <div class="container-narrow" style="margin: 0 auto;">
@@ -155,51 +111,47 @@
 
       <div class="pillars-grid">
         <div class="pillar-card">
-          <div class="pillar-kicker">01 &middot; Simulator</div>
-          <h3>Real-Time WebGL2 Ocean Engine</h3>
-          <p>Runs at 60 FPS in the browser and deterministically on server GPUs, coupling three FFT wave cascades, a 3D MLS-MPM fluid solver, 3D Snell caustics, Beer&ndash;Lambert optics, Ho&scaron;ek&ndash;Wilkie sky reflections, and 877 3D marine species.</p>
+          <div class="pillar-kicker">Simulator</div>
+          <h3>Real-time WebGL2 ocean</h3>
+          <p>FFT waves, MLS-MPM splashes, caustics, 877 species.</p>
         </div>
         <div class="pillar-card">
-          <div class="pillar-kicker">02 &middot; Dataset</div>
-          <h3>Cross-Domain Aerial Benchmark</h3>
-          <p>Pairs 11,000 five-second 1080p simulated videos (789 train / 88 held-out test species) with 2,371 cut-free real drone clips from 538 YouTube videos (7.5 hours), aligned via nuisance-decorrelated DINOv2 + AnyUp features.</p>
+          <div class="pillar-kicker">Dataset</div>
+          <h3>Simulated + real</h3>
+          <p>11,000 simulated videos, 2,371 real drone clips.</p>
         </div>
         <div class="pillar-card">
-          <div class="pillar-kicker">03 &middot; Model</div>
-          <h3>Three-Expert Video Diffusion</h3>
-          <p>A 1.3B Wan 2.1 Mixture-of-Transformers trained jointly on simulated and unlabeled real video via Diffusion Forcing and differentiable forward/backward optical walk losses across 12 video streams.</p>
+          <div class="pillar-kicker">Model</div>
+          <h3>Multi-stream video diffusion</h3>
+          <p>Clean scene and water layers, trained on both domains.</p>
         </div>
       </div>
 
       <div class="metric-strip">
         <div class="metric-box">
-          <div class="metric-value">+13.2 dB</div>
-          <div class="metric-label">Full-frame PSNR gain over raw input (19.6 &rarr; 32.8 dB)</div>
+          <div class="metric-value">32.8 dB</div>
+          <div class="metric-label">PSNR (input 19.6)</div>
         </div>
         <div class="metric-box">
-          <div class="metric-value">+3.5 dB</div>
-          <div class="metric-label">Animal FG PSNR gain on unseen creatures (15.6 &rarr; 19.1 dB)</div>
+          <div class="metric-value">19.1 dB</div>
+          <div class="metric-label">Animal PSNR (input 15.6)</div>
         </div>
         <div class="metric-box">
           <div class="metric-value">0.617</div>
-          <div class="metric-label">Best real-video P<sub>real</sub> (&darr;, vs. 0.784 raw input)</div>
+          <div class="metric-label">P<sub>real</sub> &darr; (input 0.784)</div>
         </div>
         <div class="metric-box">
           <div class="metric-value">877</div>
-          <div class="metric-label">3D marine species assets (789 train / 88 unseen test)</div>
+          <div class="metric-label">3D species</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Reversible Optical Formation -->
   <section id="optics" class="section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Reversible Five-Layer Optical Decomposition</h2>
-        <p class="section-subtitle">
-          Rather than treating dewatering as unconstrained RGB-to-RGB translation, WhaleUnveil exports and predicts five image-space physical water layers that recombine in closed form to match the observed frame within 0.5 RGB units.
-        </p>
+        <h2 class="section-title">Optical Model</h2>
       </div>
 
       <div class="equation-card">
@@ -224,55 +176,32 @@
         </div>
 
         <div class="layer-legend">
-          <div class="layer-pill">
-            <strong><span class="sym">W</span> Refraction Warp</strong>
-            Image-space pixel displacement caused by refraction across the tilted wave surface.
-          </div>
-          <div class="layer-pill">
-            <strong><span class="sym">T</span> Depth Attenuation</strong>
-            Per-channel Beer&ndash;Lambert transmittance; water color <em>c</em><sub>w</sub> replaces absorbed light.
-          </div>
-          <div class="layer-pill">
-            <strong><span class="sym">Q</span> Caustics</strong>
-            Additive wave-focused sunlight cast onto submerged animals and seabeds.
-          </div>
-          <div class="layer-pill">
-            <strong><span class="sym">K</span> Surface Dimming</strong>
-            Fraction of underwater light escaping Fresnel reflection and surface foam.
-          </div>
-          <div class="layer-pill">
-            <strong><span class="sym">A</span> Glint &amp; Foam</strong>
-            Additive surface radiance from reflected skylight, sun glitter, and whitecaps.
-          </div>
+          <div class="layer-pill"><strong><span class="sym">W</span> Refraction warp</strong></div>
+          <div class="layer-pill"><strong><span class="sym">T</span> Depth attenuation</strong></div>
+          <div class="layer-pill"><strong><span class="sym">Q</span> Caustics</strong></div>
+          <div class="layer-pill"><strong><span class="sym">K</span> Surface dimming</strong></div>
+          <div class="layer-pill"><strong><span class="sym">A</span> Glint &amp; foam</strong></div>
         </div>
       </div>
 
       <figure class="figure-single">
         <div class="figure-media" data-lightbox>
-          <img src="assets/fig2_layers.png" alt="Reversible layered image formation in WhaleUnveil" loading="lazy">
-          <span class="zoom-hint">Click to zoom</span>
+          <img src="assets/fig2_layers.png" alt="Layered image formation" loading="lazy">
         </div>
-        <figcaption>
-          <strong>Reversible layered image formation in WhaleUnveil (Paper Fig. 2).</strong>
-          Each frame exports clean scene <strong>C</strong> alongside five physical water layers. <strong>Top:</strong> Forward walk composing each layer from <strong>C</strong> to reconstructed input. <strong>Middle:</strong> The five layers and forward/inverse operators. <strong>Bottom:</strong> Backward walk stripping each layer from input <strong>L</strong> to recover the clean scene.
-        </figcaption>
+        <figcaption><strong>Forward and backward walk.</strong></figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- Supplemental Simulator Gallery -->
   <section id="simulator" class="section">
     <div class="container">
       <div class="gallery-toolbar">
         <div class="section-header" style="margin-bottom: 0;">
-          <h2 class="section-title">Supplemental Simulator Gallery</h2>
-          <p class="section-subtitle">
-            Standalone 1080p60 recordings from the WhaleUnveil WebGL2 simulator highlighting per-frame optical decomposition, fluid dynamics, and biological scale.
-          </p>
+          <h2 class="section-title">Simulator</h2>
         </div>
         <div class="toolbar-controls">
-          <button type="button" class="btn-small" id="play-all-supp">Play All (Muted)</button>
-          <button type="button" class="btn-small" id="pause-all-supp">Pause All</button>
+          <button type="button" class="btn-small" id="play-all-supp">Play all</button>
+          <button type="button" class="btn-small" id="pause-all-supp">Pause all</button>
         </div>
       </div>
 
@@ -283,15 +212,6 @@
               <source src="assets/supp_optical_layers.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="video-card-body">
-            <div class="video-card-top">
-              <h3>Optical Decomposition Wipe</h3>
-              <span class="duration-badge">19.0 s &middot; 1080p60</span>
-            </div>
-            <p>
-              Full-frame temporal wipe across a single swimming humpback whale revealing every exported optical layer in sequence &mdash; from observed aerial radiance through refraction warp, depth attenuation, caustics, surface dimming, glint/foam, segmentation mask, and clean underwater albedo.
-            </p>
-          </div>
         </article>
 
         <article class="video-card">
@@ -299,15 +219,6 @@
             <video class="supp-video" controls loop playsinline preload="metadata" poster="assets/supp_layers_matrix_poster.jpg">
               <source src="assets/supp_layers_matrix.mp4" type="video/mp4">
             </video>
-          </div>
-          <div class="video-card-body">
-            <div class="video-card-top">
-              <h3>6-Layer Synchronous Matrix</h3>
-              <span class="duration-badge">6.0 s &middot; 1080p60</span>
-            </div>
-            <p>
-              Simultaneous multi-panel view of six synchronized simulator ground-truth buffers rendered in lockstep at every frame, including exact animal segmentation masks.
-            </p>
           </div>
         </article>
 
@@ -317,15 +228,6 @@
               <source src="assets/supp_fluid_particles.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="video-card-body">
-            <div class="video-card-top">
-              <h3>MLS-MPM Fluid Particles (393K Spheres)</h3>
-              <span class="duration-badge">5.5 s &middot; 1080p60</span>
-            </div>
-            <p>
-              Raw 3D sphere visualization of our 393K-particle MLS-MPM fluid solver coupled with spectral FFT ocean waves to synthesize breaking splashes and wildlife wakes.
-            </p>
-          </div>
         </article>
 
         <article class="video-card">
@@ -333,15 +235,6 @@
             <video class="supp-video" controls loop playsinline preload="metadata" poster="assets/supp_species_ocean_poster.jpg">
               <source src="assets/supp_species_ocean.mp4" type="video/mp4">
             </video>
-          </div>
-          <div class="video-card-body">
-            <div class="video-card-top">
-              <h3>Underwater Species Diversity</h3>
-              <span class="duration-badge">9.0 s &middot; 1080p60</span>
-            </div>
-            <p>
-              Six distinct marine species swimming beneath dynamic waves, caustics, and depth-dependent water attenuation, showcasing texture and geometry fidelity across taxonomic groups.
-            </p>
           </div>
         </article>
 
@@ -351,34 +244,20 @@
               <source src="assets/supp_877_species_grid.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="video-card-body">
-            <div class="video-card-top">
-              <h3>877 3D Marine Species Scale</h3>
-              <span class="duration-badge">8.5 s &middot; 1080p60</span>
-            </div>
-            <p>
-              Continuous zoom-out from the default sperm whale dead-center to the full 877-species library (876 automated Nano Banana + BiRefNet + TRELLIS.2 meshes plus 1 artist-authored articulated sperm whale).
-            </p>
-          </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Quantitative Results -->
   <section id="results" class="section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Quantitative Benchmark &amp; Ablations</h2>
-        <p class="section-subtitle">
-          Evaluated on 50 held-out simulated clips with unseen creatures (15 seabed, 35 open water) and 50 real drone clips from unseen source videos (17-frame windows at 240&times;432).
-        </p>
+        <h2 class="section-title">Benchmark</h2>
       </div>
 
       <div class="tables-grid">
         <div class="table-card">
-          <h3>Main Dewatering Benchmark (Paper Table 1)</h3>
-          <p class="table-note">FG: animal foreground PSNR (&uarr;). PSNR / SSIM: full-frame (&uarr;). P<sub>real</sub>: ground-truth-free real-video distance (&darr;).</p>
+          <h3>Main results</h3>
           <table class="results-table">
             <thead>
               <tr>
@@ -425,12 +304,11 @@
         </div>
 
         <div class="table-card">
-          <h3>Model Ablations (Paper Table 2)</h3>
-          <p class="table-note">Each row adds one component under an identical 20k-update budget.</p>
+          <h3>Ablations</h3>
           <table class="results-table">
             <thead>
               <tr>
-                <th>Model Variant</th>
+                <th>Model</th>
                 <th>FG &uarr;</th>
                 <th>PSNR &uarr;</th>
                 <th>SSIM &uarr;</th>
@@ -451,135 +329,93 @@
               </tr>
             </tbody>
           </table>
-          <p class="table-note" style="margin-top: 14px; margin-bottom: 0;">
-            Semantic features cut backward error by 26% (28.1 &rarr; 20.7); forward walk loss cuts real hallucination by 36% (H<sub>real</sub> 0.130 &rarr; 0.083); backward walk loss prevents animal leakage into water layers and achieves the lowest real-footage distance (P<sub>real</sub> = 0.591).
-          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Supplemental Paper Figures -->
   <section id="figures" class="section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Paper &amp; Supplemental Results Figures</h2>
-        <p class="section-subtitle">
-          Click any figure to inspect it at full resolution. Press <kbd>Esc</kbd> or click outside to close.
-        </p>
+        <h2 class="section-title">Figures</h2>
       </div>
 
-      <div class="filter-tabs" role="tablist" aria-label="Filter paper figures">
-        <button type="button" class="filter-tab active" data-filter="all">All Figures</button>
-        <button type="button" class="filter-tab" data-filter="qualitative">Qualitative Comparisons</button>
-        <button type="button" class="filter-tab" data-filter="architecture">System &amp; Physics</button>
-        <button type="button" class="filter-tab" data-filter="analysis">Metrics &amp; Ablations</button>
+      <div class="filter-tabs" role="tablist" aria-label="Filter figures">
+        <button type="button" class="filter-tab active" data-filter="all">All</button>
+        <button type="button" class="filter-tab" data-filter="qualitative">Qualitative</button>
+        <button type="button" class="filter-tab" data-filter="architecture">Method</button>
+        <button type="button" class="filter-tab" data-filter="analysis">Analysis</button>
       </div>
 
       <div class="figure-grid">
         <figure class="figure-card wide" data-category="architecture">
           <div class="figure-media" data-lightbox>
-            <img src="assets/fig1_teaser.png" alt="The three components of WhaleUnveil: simulator, dataset, and model" loading="lazy">
-            <span class="zoom-hint">Click to zoom</span>
+            <img src="assets/fig1_teaser.png" alt="Simulator, dataset, and model" loading="lazy">
           </div>
-          <figcaption>
-            <strong>The three components of WhaleUnveil (Fig. 1).</strong>
-            <strong>Left:</strong> The simulator renders real-time (60 FPS) ocean scenes with high-resolution physical labels across diverse lighting and sea states. <strong>Middle:</strong> Our dataset pairs 11,000 simulated videos with 2,371 real drone clips of marine wildlife from YouTube. <strong>Right:</strong> Trained jointly on both, the WhaleUnveil Model dewaters real aerial video without ground truth, stripping waves, foam, and surface glint to reveal the humpback mother and calf beneath.
-          </figcaption>
+          <figcaption><strong>Simulator, dataset, model.</strong></figcaption>
         </figure>
 
         <figure class="figure-card wide" data-category="qualitative">
           <div class="figure-media" data-lightbox>
-            <img src="assets/fig8_baselines_main.jpg" alt="Qualitative comparison on simulated and real video" loading="lazy">
-            <span class="zoom-hint">Click to zoom</span>
+            <img src="assets/fig8_baselines_main.jpg" alt="Comparison on simulated and real video" loading="lazy">
           </div>
-          <figcaption>
-            <strong>Qualitative comparison on simulated (rows 1&ndash;2) and real video (rows 3&ndash;4).</strong>
-            The 151-frame median blurs wildlife, Seeing Through Water and Qwen-Edit leave distortion, and SAM 3 + SAM 3D simplifies geometry. Simulated-pair baselines fail on real clips: tuned Li et al. erases the beluga pod, while RGB-only Wan replaces it with sand and invents shapes in surf.
-          </figcaption>
+          <figcaption><strong>Comparison with baselines.</strong> Simulated (rows 1&ndash;2), real (rows 3&ndash;4).</figcaption>
+        </figure>
+
+        <figure class="figure-card wide" data-category="qualitative">
+          <div class="figure-media" data-lightbox>
+            <img src="assets/figS_qual_hr.jpg" alt="High-resolution comparison on real footage" loading="lazy">
+          </div>
+          <figcaption><strong>High-resolution, real footage.</strong></figcaption>
+        </figure>
+
+        <figure class="figure-card wide" data-category="qualitative">
+          <div class="figure-media" data-lightbox>
+            <img src="assets/figS_qual_hr_sim.jpg" alt="High-resolution comparison on simulated scenes" loading="lazy">
+          </div>
+          <figcaption><strong>High-resolution, simulated.</strong></figcaption>
         </figure>
 
         <figure class="figure-card wide" data-category="architecture">
           <div class="figure-media" data-lightbox>
-            <img src="assets/fig_walk_real.png" alt="Physically consistent layers on real sperm whale pod footage" loading="lazy">
-            <span class="zoom-hint">Click to zoom</span>
+            <img src="assets/fig_walk_real.png" alt="Forward and backward walk on real footage" loading="lazy">
           </div>
-          <figcaption>
-            <strong>Physically consistent layers on real footage.</strong>
-            Predicted layers for a held-out real drone clip of a sperm whale pod (middle). <strong>Forward walk (top):</strong> applying Eq. (1) to the predicted clean scene re-composes the input (9.8 mean RGB error). <strong>Backward walk (bottom):</strong> removing glint and foam, dimming, caustics, and depth from the input and undoing the refraction warp recovers a clean scene matching the model's prediction (15.0 RGB error on the animals).
-          </figcaption>
+          <figcaption><strong>Layers on real footage.</strong> Forward walk re-composes the input, backward walk recovers the clean scene.</figcaption>
         </figure>
 
         <figure class="figure-card wide" data-category="architecture">
           <div class="figure-media" data-lightbox>
-            <img src="assets/fig5_model.png" alt="WhaleUnveil multi-stream diffusion training" loading="lazy">
-            <span class="zoom-hint">Click to zoom</span>
+            <img src="assets/fig5_model.png" alt="Multi-stream diffusion training" loading="lazy">
           </div>
-          <figcaption>
-            <strong>WhaleUnveil multi-stream diffusion training.</strong>
-            <strong>Rows 1&ndash;2:</strong> Simulated (all streams) and real clips (input and features; unobserved marked N/A). <strong>Rows 3&ndash;4:</strong> Diffusion Forcing inputs with per-stream noise (unobserved streams at t<sub>m</sub> = 1). <strong>Rows 5&ndash;6:</strong> Three-expert outputs spanning appearance, underwater, and surface streams.
-          </figcaption>
-        </figure>
-
-        <figure class="figure-card" data-category="qualitative">
-          <div class="figure-media" data-lightbox>
-            <img src="assets/figS_qual_real.jpg" alt="Supplemental qualitative dewatering results on real drone footage" loading="lazy">
-            <span class="zoom-hint">Click to zoom</span>
-          </div>
-          <figcaption>
-            <strong>Supplemental qualitative results on real drone clips.</strong>
-            Additional held-out real-world aerial wildlife clips showing wave, glare, and foam removal while preserving submerged animals.
-          </figcaption>
-        </figure>
-
-        <figure class="figure-card" data-category="qualitative">
-          <div class="figure-media" data-lightbox>
-            <img src="assets/figS_qual_synth.jpg" alt="Supplemental qualitative dewatering results on held-out simulated species" loading="lazy">
-            <span class="zoom-hint">Click to zoom</span>
-          </div>
-          <figcaption>
-            <strong>Supplemental qualitative results on unseen simulated species.</strong>
-            Dewatering performance across held-out 3D marine creatures under diverse sea states, lighting, and seabed conditions.
-          </figcaption>
+          <figcaption><strong>Model.</strong></figcaption>
         </figure>
 
         <figure class="figure-card" data-category="analysis">
           <div class="figure-media" data-lightbox>
-            <img src="assets/fig7_ablation_real.jpg" alt="Qualitative ablation comparison on real footage" loading="lazy">
-            <span class="zoom-hint">Click to zoom</span>
+            <img src="assets/figS_ablation_real.jpg" alt="Ablations on real footage" loading="lazy">
           </div>
-          <figcaption>
-            <strong>Real-footage ablation study.</strong>
-            Qualitative comparison of incremental model components on challenging real drone footage; our final model preserves submerged wildlife and cleanly strips breaking surf foam.
-          </figcaption>
+          <figcaption><strong>Ablations, real footage.</strong></figcaption>
         </figure>
 
         <figure class="figure-card" data-category="analysis">
           <div class="figure-media" data-lightbox>
-            <img src="assets/fig_p_permethod.png" alt="Predicted-clean distance P versus animal FG PSNR across 41 methods" loading="lazy">
-            <span class="zoom-hint">Click to zoom</span>
+            <img src="assets/fig_p_permethod.png" alt="P versus animal PSNR" loading="lazy">
           </div>
-          <figcaption>
-            <strong>Ground-truth-free metric P tracks animal accuracy.</strong>
-            Per-method mean predicted-clean distance P vs. true animal FG PSNR on held-out simulated clips across 17 benchmark baselines and 24 model variants (&rho; = &minus;0.88).
-          </figcaption>
+          <figcaption><strong>P tracks animal PSNR</strong> (&rho; = &minus;0.88).</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
-  <!-- BibTeX -->
   <section id="bibtex" class="section">
     <div class="container container-narrow">
       <div class="section-header">
         <h2 class="section-title">BibTeX</h2>
-        <p class="section-subtitle">If you find WhaleUnveil useful in your research, please consider citing:</p>
       </div>
-
       <div class="bibtex-card">
         <div class="bibtex-header">
-          <span>Citation</span>
-          <button type="button" class="btn-small" id="copy-bibtex-btn">Copy BibTeX</button>
+          <span></span>
+          <button type="button" class="btn-small" id="copy-bibtex-btn">Copy</button>
         </div>
         <pre class="bibtex-pre"><code id="bibtex-code">@inproceedings{anonymous2027whaleunveil,
   title     = {WhaleUnveil: Seeing Marine Life Beneath the Ocean Surface in Aerial Video},
@@ -591,15 +427,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <span>WhaleUnveil Supplemental Project Page</span>
-    </div>
-  </footer>
-
-  <!-- Lightbox Modal -->
-  <div id="figure-lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Full-resolution figure viewer">
+  <div id="figure-lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Figure viewer">
     <div class="lightbox-inner">
       <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
       <div class="lightbox-img-wrap">

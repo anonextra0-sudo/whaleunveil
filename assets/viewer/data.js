@@ -9,7 +9,7 @@ window.VIEWER_DATA = {
     },
     {
      "key": "ours",
-     "label": "Ours (predicted clean)"
+     "label": "Ours"
     }
    ],
    "layers": [
@@ -86,7 +86,7 @@ window.VIEWER_DATA = {
     },
     {
      "key": "ours",
-     "label": "Ours (predicted clean)"
+     "label": "Ours"
     }
    ],
    "layers": [
@@ -163,7 +163,7 @@ window.VIEWER_DATA = {
     },
     {
      "key": "ours",
-     "label": "Ours (predicted clean)"
+     "label": "Ours"
     }
    ],
    "layers": [
@@ -240,7 +240,7 @@ window.VIEWER_DATA = {
     },
     {
      "key": "ours",
-     "label": "Ours (predicted clean)"
+     "label": "Ours"
     }
    ],
    "layers": [
@@ -317,7 +317,7 @@ window.VIEWER_DATA = {
     },
     {
      "key": "ours",
-     "label": "Ours (predicted clean)"
+     "label": "Ours"
     }
    ],
    "layers": [
@@ -394,7 +394,7 @@ window.VIEWER_DATA = {
     },
     {
      "key": "ours",
-     "label": "Ours (predicted clean)"
+     "label": "Ours"
     }
    ],
    "layers": [
@@ -471,7 +471,7 @@ window.VIEWER_DATA = {
     },
     {
      "key": "ours",
-     "label": "Ours (predicted clean)"
+     "label": "Ours"
     }
    ],
    "layers": [
@@ -548,7 +548,7 @@ window.VIEWER_DATA = {
     },
     {
      "key": "ours",
-     "label": "Ours (predicted clean)"
+     "label": "Ours"
     }
    ],
    "layers": [
@@ -627,7 +627,7 @@ window.VIEWER_DATA = {
     },
     {
      "key": "ours",
-     "label": "Ours (predicted clean)"
+     "label": "Ours"
     },
     {
      "key": "gt",
@@ -708,7 +708,7 @@ window.VIEWER_DATA = {
     },
     {
      "key": "ours",
-     "label": "Ours (predicted clean)"
+     "label": "Ours"
     },
     {
      "key": "gt",
@@ -789,7 +789,7 @@ window.VIEWER_DATA = {
     },
     {
      "key": "ours",
-     "label": "Ours (predicted clean)"
+     "label": "Ours"
     },
     {
      "key": "gt",
@@ -870,7 +870,7 @@ window.VIEWER_DATA = {
     },
     {
      "key": "ours",
-     "label": "Ours (predicted clean)"
+     "label": "Ours"
     },
     {
      "key": "gt",
@@ -951,7 +951,7 @@ window.VIEWER_DATA = {
     },
     {
      "key": "ours",
-     "label": "Ours (predicted clean)"
+     "label": "Ours"
     },
     {
      "key": "gt",
@@ -1032,7 +1032,7 @@ window.VIEWER_DATA = {
     },
     {
      "key": "ours",
-     "label": "Ours (predicted clean)"
+     "label": "Ours"
     },
     {
      "key": "gt",
@@ -1113,7 +1113,7 @@ window.VIEWER_DATA = {
     },
     {
      "key": "ours",
-     "label": "Ours (predicted clean)"
+     "label": "Ours"
     },
     {
      "key": "gt",
@@ -1194,7 +1194,7 @@ window.VIEWER_DATA = {
     },
     {
      "key": "ours",
-     "label": "Ours (predicted clean)"
+     "label": "Ours"
     },
     {
      "key": "gt",

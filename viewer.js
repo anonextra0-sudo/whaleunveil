@@ -16,7 +16,6 @@
   const btnSpeed = $("#vbtn-speed");
   const btnLayers = $("#vbtn-layers");
   const btnBase = $("#vbtn-base");
-  const meta = $("#viewer-meta");
 
   const SPEEDS = [1, 0.5, 0.25];
   let kind = "real";
@@ -69,7 +68,7 @@
       else v.pause();
     });
     btnPlay.textContent = playing ? "Pause" : "Play";
-    btnSpeed.textContent = `Speed ${rate}×`;
+    btnSpeed.textContent = `${rate}×`;
   }
 
   function sync() {
@@ -100,11 +99,6 @@
     stage.replaceChildren(...item.main.map((e) => panel(kind, item.id, e)));
     fillExtras();
     Array.from(thumbs.children).forEach((t, i) => t.classList.toggle("active", i === idx));
-    meta.innerHTML =
-      (kind === "real"
-        ? "Held-out real drone footage"
-        : "Held-out simulated test scene (unseen creature)") +
-      ` &middot; 480&times;864 &middot; 17 frames, looped forward and back &middot; <code>${item.id}</code>`;
     applyPlayState();
   }
 
