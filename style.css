@@ -2,23 +2,25 @@
    Restrained academic editorial styling */
 
 :root {
-  --bg: #fbfcfd;
-  --surface: #ffffff;
-  --surface-subtle: #f4f7f9;
-  --border: #e2e8f0;
-  --border-strong: #cbd5e1;
-  --ink: #0f172a;
-  --ink-body: #334155;
-  --ink-muted: #64748b;
-  --accent: #0c5d78;
-  --accent-hover: #09465b;
-  --accent-soft: #e8f3f7;
-  --accent-border: #bddae4;
+  color-scheme: dark;
+  --bg: #0a0f14;
+  --surface: #111920;
+  --surface-subtle: #16202a;
+  --border: #22303c;
+  --border-strong: #33444f;
+  --ink: #eef3f7;
+  --ink-body: #c4cfd8;
+  --ink-muted: #8a99a7;
+  --accent: #5cc3e6;
+  --accent-hover: #8ad6f0;
+  --accent-soft: #10303d;
+  --accent-border: #1e5468;
+  --on-accent: #04131a;
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 6px 24px rgba(15, 23, 42, 0.06);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.45);
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-serif: "Newsreader", "Source Serif 4", Georgia, "Times New Roman", serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -75,7 +77,7 @@ img, video {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(251, 252, 253, 0.92);
+  background: rgba(10, 15, 20, 0.86);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
@@ -236,13 +238,13 @@ img, video {
 .pill-btn.primary {
   background: var(--accent);
   border-color: var(--accent);
-  color: #ffffff;
+  color: var(--on-accent);
 }
 
 .pill-btn.primary:hover {
   background: var(--accent-hover);
   border-color: var(--accent-hover);
-  color: #ffffff;
+  color: var(--on-accent);
 }
 
 .pill-btn svg {
@@ -702,7 +704,7 @@ table.results-table tr.highlight-row td {
 .filter-tab.active {
   background: var(--accent);
   border-color: var(--accent);
-  color: #ffffff;
+  color: var(--on-accent);
 }
 
 .figure-grid {
@@ -738,7 +740,7 @@ table.results-table tr.highlight-row td {
 
 .figure-media {
   position: relative;
-  background: #ffffff;
+  background: #f4f6f8;
   padding: 12px;
   cursor: zoom-in;
   border-bottom: 1px solid var(--border);

@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="viewer.css">
 </head>
 <body>
 
@@ -21,11 +22,12 @@
         <span>WhaleUnveil</span>
       </a>
       <ul class="nav-links">
+        <li><a href="#viewer">Results</a></li>
         <li><a href="#teaser">Teaser Video</a></li>
         <li><a href="#abstract">Abstract</a></li>
         <li><a href="#optics">Optical Model</a></li>
         <li><a href="#simulator">Simulator Gallery</a></li>
-        <li><a href="#results">Results</a></li>
+        <li><a href="#results">Benchmark</a></li>
         <li><a href="#figures">Paper Figures</a></li>
         <li><a href="#bibtex">BibTeX</a></li>
       </ul>
@@ -64,6 +66,41 @@
       </div>
     </div>
   </header>
+
+  <!-- Results viewer -->
+  <section id="viewer" class="viewer-section">
+    <div class="viewer-wide">
+      <div class="viewer-head">
+        <div>
+          <h2 class="section-title">Results</h2>
+          <p>Our high-resolution model removes the water from held-out aerial video. Pick an example below. Predicted layers and baseline comparisons are one click away.</p>
+        </div>
+        <div class="viewer-tabs" role="tablist">
+          <button type="button" class="viewer-tab active" data-kind="real" role="tab" aria-selected="true">Real footage</button>
+          <button type="button" class="viewer-tab" data-kind="sim" role="tab" aria-selected="false">Simulated, with ground truth</button>
+        </div>
+      </div>
+      <div class="viewer-thumbs" id="viewer-thumbs"></div>
+      <div class="viewer-stage" id="viewer-stage"></div>
+      <div class="viewer-bar">
+        <div class="meta" id="viewer-meta"></div>
+        <div class="viewer-controls">
+          <button type="button" class="vbtn" id="vbtn-play">Pause</button>
+          <button type="button" class="vbtn" id="vbtn-speed">Speed 1&times;</button>
+          <button type="button" class="vbtn" id="vbtn-layers" aria-pressed="false">Show predicted layers</button>
+          <button type="button" class="vbtn" id="vbtn-base" aria-pressed="false">Show baselines</button>
+        </div>
+      </div>
+      <div class="viewer-extra" id="viewer-layers" hidden>
+        <h3>Predicted layers <span>all generated jointly with the clean video</span></h3>
+        <div class="viewer-grid" id="viewer-layers-grid"></div>
+      </div>
+      <div class="viewer-extra" id="viewer-base" hidden>
+        <h3>Baselines <span>top five methods by foreground PSNR in Table 2, run on the same input</span></h3>
+        <div class="viewer-grid" id="viewer-base-grid"></div>
+      </div>
+    </div>
+  </section>
 
   <!-- Hero Teaser Video -->
   <section id="teaser" class="section-hero">
@@ -573,5 +610,7 @@
   </div>
 
   <script src="app.js"></script>
+  <script src="assets/viewer/data.js"></script>
+  <script src="viewer.js"></script>
 </body>
 </html>
