@@ -142,3 +142,37 @@
     });
   }
 })();
+
+// Autoplay simulator/teaser videos when scrolled into view (muted); user pause is respected.
+(function () {
+  "use strict";
+  const vids = Array.from(document.querySelectorAll(".supp-video, #hero-teaser-video"));
+  if (!vids.length || !("IntersectionObserver" in window)) return;
+  const userPaused = new WeakSet();
+  const auto = new WeakSet();
+  vids.forEach((v) => {
+    v.muted = true;
+    v.setAttribute("muted", "");
+    v.setAttribute("playsinline", "");
+    v.addEventListener("pause", () => {
+      if (auto.has(v)) auto.delete(v);
+      else if (!v.ended) userPaused.add(v);
+    });
+    v.addEventListener("play", () => userPaused.delete(v));
+  });
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        const v = e.target;
+        if (e.isIntersecting && e.intersectionRatio >= 0.5) {
+          if (!userPaused.has(v) && v.paused) v.play().catch(() => {});
+        } else if (!v.paused) {
+          auto.add(v);
+          v.pause();
+        }
+      });
+    },
+    { threshold: [0, 0.5] }
+  );
+  vids.forEach((v) => io.observe(v));
+})();
